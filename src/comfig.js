@@ -8,6 +8,7 @@ import ParallelogramsCode from '!!raw-loader!./components/Parallelograms';
 import CutoutCornersCode from '!!raw-loader!./components/CutoutCorners';
 import PieChartsCode from '!!raw-loader!./components/PieCharts';
 import PolygonCode from '!!raw-loader!./components/Polygons';
+import CommonShadowsCode from "!!raw-loader!./components/CommonShadows.vue"
 export const compText = [
   {
     name: 'TranslucentBorders',
@@ -58,6 +59,10 @@ export const compText = [
     name: 'Polygons',
     title: 'Polygon 多边形',
     code: PolygonCode
+  }, {
+    name: 'CommonShadows',
+    title: 'common shadows 常见投影',
+    code:CommonShadowsCode
   }
 ];
 

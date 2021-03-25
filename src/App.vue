@@ -5,7 +5,9 @@
         <h1>need-to-know-css</h1>
         <ul>
           <li v-for="(item, i) in compText" :key="i">
-            <a @click="showComp(item)" :href="'#' + item.name">{{ i + 1 }}. {{ item.title }}</a>
+            <a @click="showComp(item)" :href="'#' + item.name"
+              >{{ i + 1 }}. {{ item.title }}</a
+            >
           </li>
         </ul>
       </div>
@@ -15,7 +17,9 @@
         <component :is="comp.name"></component>
         <div class="comp-code">
           <pre v-highlightjs="comp.code"><code class="html"></code></pre>
-          <span @click="copyContent(comp.code)" class="copy-code-btn">复制代码</span>
+          <span @click="copyContent(comp.code)" class="copy-code-btn"
+            >复制代码</span
+          >
         </div>
       </div>
     </section>
@@ -23,16 +27,16 @@
 </template>
 
 <script>
-import { comps, compText } from './comfig';
+import { comps, compText } from "./comfig";
 export default {
-  name: 'App',
+  name: "App",
   components: {
     ...comps
   },
   data() {
     return {
       compText,
-      compName: ''
+      compName: ""
     };
   },
   computed: {
@@ -41,7 +45,7 @@ export default {
     }
   },
   mounted() {
-    let hash = location.hash.split('#');
+    let hash = location.hash.split("#");
     if (hash[1]) {
       this.compName = hash[1];
     } else {
@@ -53,11 +57,11 @@ export default {
       this.compName = item.name;
     },
     copyContent(content) {
-      var copyDom = document.createElement('div');
+      var copyDom = document.createElement("div");
       copyDom.innerText = content;
-      copyDom.style.position = 'absolute';
-      copyDom.style.top = '0px';
-      copyDom.style.right = '-9999px';
+      copyDom.style.position = "absolute";
+      copyDom.style.top = "0px";
+      copyDom.style.right = "-9999px";
       document.body.appendChild(copyDom);
       //创建选中范围
       var range = document.createRange();
@@ -67,14 +71,14 @@ export default {
       //添加新的内容到剪切板
       window.getSelection().addRange(range);
       //复制
-      var successful = document.execCommand('copy');
+      var successful = document.execCommand("copy");
       copyDom.parentNode.removeChild(copyDom);
       try {
-        var msg = successful ? 'successful' : 'failed';
-        console.log('Copy command was : ' + msg);
-        alert("复制成功")
+        var msg = successful ? "successful" : "failed";
+        console.log("Copy command was : " + msg);
+        alert("复制成功");
       } catch (err) {
-        console.log('Oops , unable to copy!');
+        console.log("Oops , unable to copy!");
       }
     }
   }
@@ -154,5 +158,18 @@ section pre > code {
   line-height: 1;
   cursor: pointer;
   color: hsla(0, 0%, 54.9%, 0.8);
+}
+@media screen and (max-width: 768px) {
+  #app {
+    flex-direction: column;
+  }
+  aside {
+    width: 100%;
+    height: auto;
+  }
+  aside,
+  section {
+    overflow-y: initial;
+  }
 }
 </style>

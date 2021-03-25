@@ -1,5 +1,7 @@
 # css-tricks
 
+学习 [You-need-to-know-css](https://lhammer.cn/You-need-to-know-css "You-need-to-know-css") 的练习项目
+
 ## Project setup
 ```
 yarn install
@@ -19,6 +21,3 @@ yarn build
 ```
 yarn lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
